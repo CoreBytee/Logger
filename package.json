@@ -13,6 +13,10 @@
 
     "module": "./src/index.js",
     "type": "module",
+    "scripts": {
+        "test": "bun run ./src/test.js"
+    },
+
     "devDependencies": {
         "@types/bun": "latest"
     },
