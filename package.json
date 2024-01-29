@@ -1,5 +1,5 @@
 {
-    "name": "logger",
+    "name": "@corebyte/logger",
     "description": "Pretty logger for node/bun",
     "version": "1.0.0",
     "license": "MIT",
