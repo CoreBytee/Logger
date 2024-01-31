@@ -1,4 +1,4 @@
-import Logger from ".";
+import Logger from "./index.js"
 
 const LoggerInstance = new Logger("Test", 4)
 LoggerInstance.Debug("Debug")

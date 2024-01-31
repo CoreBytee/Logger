@@ -1,29 +1,29 @@
 {
-    "name": "@corebyte/logger",
-    "description": "Pretty logger for node/bun",
-    "version": "1.0.0",
-    "license": "MIT",
-    "author": "CoreByte",
-    "keywords": ["nodejs", "bun", "logger", "pretty"],
-    "homepage": "https://github.com/CoreBytee/Logger",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/CoreBytee/Logger.git"
-    },
-
-    "module": "./src/index.js",
-    "type": "module",
-    "scripts": {
-        "test": "bun run ./src/test.js"
-    },
-
-    "devDependencies": {
-        "@types/bun": "latest"
-    },
-    "peerDependencies": {
-        "typescript": "^5.0.0"
-    },
-    "dependencies": {
-        "colors": "^1.4.0"
-    }
+  "name": "@corebyte/logger",
+  "description": "Pretty logger for node/bun",
+  "version": "1.0.2",
+  "license": "MIT",
+  "author": "CoreByte",
+  "keywords": ["nodejs", "bun", "logger", "pretty"],
+  "homepage": "https://github.com/CoreBytee/Logger",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CoreBytee/Logger.git"
+  },
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "bun run ./src/test.js",
+    "testnode": "node ./src/test.js"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
 }

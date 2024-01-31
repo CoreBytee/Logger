@@ -1,4 +1,4 @@
-const Colors = require("colors/safe")
+import chalk from "chalk"
 
 function Pad(num, size) {
     var s = "00" + num;
@@ -11,11 +11,11 @@ class Logger {
         this.LogLevel = LogLevel
 
         this.LogLevels = [
-            Colors.underline(Colors.red("FATAL")),
-            Colors.red("ERROR"),
-            Colors.yellow("WARN "),
-            Colors.brightGreen("INFO "),
-            Colors.cyan("DEBUG")
+            chalk.underline.red("FATAL"),
+            chalk.red("ERROR"),
+            chalk.yellow("WARN "),
+            chalk.greenBright("INFO "),
+            chalk.cyan("DEBUG")
         ]
     }
 
@@ -25,7 +25,7 @@ class Logger {
         const Time = new Date()
         const TimeString = `${Time.getFullYear()}-${Pad(Time.getMonth() + 1, 2)}-${Pad(Time.getDate(), 2)} ${Pad(Time.getHours(), 2)}:${Pad(Time.getMinutes(), 2)}:${Pad(Time.getSeconds(), 2)}`
         console.log(
-            `[ ${Colors.bold(this.LogLevels[Level])} ] [ ${this.Name} ] [ ${TimeString} ] : ${Message}`
+            `[ ${chalk.bold(this.LogLevels[Level])} ] [ ${this.Name} ] [ ${TimeString} ] : ${Message}`
         )
     }
 
@@ -58,4 +58,4 @@ class Logger {
     }
 }
 
-module.exports = Logger
+export default Logger
