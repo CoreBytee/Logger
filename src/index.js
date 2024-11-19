@@ -1,61 +1,94 @@
-import chalk from "chalk"
+import chalk from "chalk";
 
-function Pad(num, size) {
+function pad(num, size) {
     var s = "00" + num;
-    return s.substring(s.length-size);
+    return s.substring(s.length - size);
 }
 
 class Logger {
-    constructor(Name, LogLevel=3) {
-        this.Name = Name
-        this.LogLevel = LogLevel
+    constructor(name, logLevel = 3) {
+        this.name = name;
+        this.logLevel = logLevel;
 
-        this.LogLevels = [
+        this.logLevels = [
             chalk.underline.red("FATAL"),
             chalk.red("ERROR"),
             chalk.yellow("WARN "),
             chalk.greenBright("INFO "),
             chalk.cyan("DEBUG")
-        ]
+        ];
     }
 
-    Log(Level, Message) {
-        if (Level > this.LogLevel) { return }
+    log(level, message) {
+        if (level > this.logLevel) { return; }
 
-        const Time = new Date()
-        const TimeString = `${Time.getFullYear()}-${Pad(Time.getMonth() + 1, 2)}-${Pad(Time.getDate(), 2)} ${Pad(Time.getHours(), 2)}:${Pad(Time.getMinutes(), 2)}:${Pad(Time.getSeconds(), 2)}`
+        const time = new Date();
+        const timeString = `${time.getFullYear()}-${pad(time.getMonth() + 1, 2)}-${pad(time.getDate(), 2)} ${pad(time.getHours(), 2)}:${pad(time.getMinutes(), 2)}:${pad(time.getSeconds(), 2)}`;
         console.log(
-            `[ ${chalk.bold(this.LogLevels[Level])} ] [ ${this.Name} ] [ ${TimeString} ] : ${Message}`
-        )
+            `[ ${chalk.bold(this.logLevels[level])} ] [ ${this.name} ] [ ${timeString} ] : ${message}`
+        );
+    }
+
+    debug(message) {
+        this.log(4, message);
+    }
+
+    info(message) {
+        this.log(3, message);
+    }
+
+    information(message) {
+        this.info(message);
+    }
+
+    warn(message) {
+        this.log(2, message);
+    }
+
+    warning(message) {
+        this.warn(message);
+    }
+
+    error(message) {
+        this.log(1, message);
+    }
+
+    fatal(message) {
+        this.log(0, message);
+    }
+
+    // Compatibility methods
+    Log(Level, Message) {
+        this.log(Level, Message);
     }
 
     Debug(Message) {
-        this.Log(4, Message)
+        this.debug(Message);
     }
 
     Info(Message) {
-        this.Log(3, Message)
+        this.info(Message);
     }
 
     Information(Message) {
-        this.Info(Message)
+        this.information(Message);
     }
 
     Warn(Message) {
-        this.Log(2, Message)
+        this.warn(Message);
     }
 
     Warning(Message) {
-        this.Warn(Message)
+        this.warning(Message);
     }
 
     Error(Message) {
-        this.Log(1, Message)
+        this.error(Message);
     }
 
     Fatal(Message) {
-        this.Log(0, Message)
+        this.fatal(Message);
     }
 }
 
-export default Logger
+export default Logger;
