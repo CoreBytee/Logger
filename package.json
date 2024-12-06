@@ -1,7 +1,7 @@
 {
     "name": "@corebyte/logger",
     "description": "Pretty logger for node/bun",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "license": "MIT",
     "author": "CoreByte",
     "keywords": [
@@ -20,8 +20,7 @@
     "type": "module",
     "scripts": {
         "build": "tsc -d --outDir ./dist",
-        "test": "bun run ./src/test.js",
-        "testnode": "node ./src/test.js"
+        "test:bun": "bun run ./test/index.ts"
     },
     "devDependencies": {
         "@types/bun": "latest"
