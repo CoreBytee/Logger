@@ -42,7 +42,7 @@ export default class Logger extends EventEmitter {
         const symbol = logLevelSymbols[logLevel]
         const coloredSymbol = logLevelColors[logLevel](symbol)
         console.log(
-            `[  ${coloredSymbol}  ] ${message}`
+            `[${coloredSymbol}] ${message}`
         )
     }
 
