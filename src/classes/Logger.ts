@@ -8,8 +8,7 @@ const logLevelSymbols = {
     [LogLevel.Success]: "✓",
     [LogLevel.Warning]: "⚠",
     [LogLevel.Error]: "✖",
-    [LogLevel.Critical]: "☢",
-    [LogLevel.Fatal]: "☠",
+    [LogLevel.Fatal]: "!",
 }
 
 const logLevelColors = {
@@ -18,7 +17,6 @@ const logLevelColors = {
     [LogLevel.Success]: chalk.green,
     [LogLevel.Warning]: chalk.yellow,
     [LogLevel.Error]: chalk.redBright,
-    [LogLevel.Critical]: chalk.bgRed,
     [LogLevel.Fatal]: chalk.red,
 }
 
@@ -64,10 +62,6 @@ export default class Logger extends EventEmitter {
 
     error(message: any) {
         return this.log(message, LogLevel.Error)
-    }
-
-    critical(message: any) {
-        return this.log(message, LogLevel.Critical)
     }
 
     fatal(message: any) {
