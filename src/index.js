@@ -1,9 +1,6 @@
 import chalk from "chalk";
 
-function pad(num, size) {
-    var s = "00" + num;
-    return s.substring(s.length - size);
-}
+const pad = (num, size) => num.toString().padStart(size, '0');
 
 class Logger {
     constructor(name, logLevel = 3) {
@@ -20,7 +17,7 @@ class Logger {
     }
 
     log(level, message) {
-        if (level > this.logLevel) { return; }
+        if (level > this.logLevel) { return }
 
         const time = new Date();
         const timeString = `${time.getFullYear()}-${pad(time.getMonth() + 1, 2)}-${pad(time.getDate(), 2)} ${pad(time.getHours(), 2)}:${pad(time.getMinutes(), 2)}:${pad(time.getSeconds(), 2)}`;
